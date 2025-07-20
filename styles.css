@@ -122,23 +122,28 @@ h2 {
     align-items: center;
     justify-content: space-between;
     padding: 20px;
-    position: relative;
-    overflow: hidden;
-    background: rgba(30, 30, 30, 0.7);
+   
+    
 }
 
 .card-image {
-    height: 130px;
-    width: 100%;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--gothic-gold);
-    font-size: 14px;
-    position: relative;
+
+ width: 140px;
+    height: 140px;
+    border-radius: 40px;
     overflow: hidden;
+    display: flex; /* Adicionado */
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
     
+}
+.card-image-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Mantém proporção sem cortar */
+    /* Ou use 'cover' se quiser preencher o espaço cortando excedentes */
+     /* Um pouco menor que o container */
+         border-radius: 40px;
 }
 
 

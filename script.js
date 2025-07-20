@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
         title: "1 ano de aluguel",
         text: "Aluguel pago para o casal não ter que dormir na rua... ou na sua casa.",
         price: "R$ 3.000,00",
-        image: "imagens/aluguel.avif",
+        image: "https://blog.escrybe.com.br/wp-content/uploads/2024/07/close-up-closed-shop-sign.jpg",
         qrImage: "qrcodes/3000.jpg",
     },
     {
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
         title: "1 ano de streaming para os noivos",
         text: "Streaming de séries para os noivos maratonarem juntos e discutirem sobre os personagens.",
         price: "R$ 480,00",
-        image: "imagens/streaming.jpeg",
+        image: "https://files.tecnoblog.net/wp-content/uploads/2020/11/ordem-star-wars-e1605818363247-700x393.png",
         qrImage: "qrcodes/480.jpg",
     },
     {
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
         title: "1 mês de aluguel",
         text: "Aluguel pago para o casal não ter que dormir na rua... ou na sua casa.",
         price: "R$ 1.500,00",
-        image: "imagens/aluguel.avif",
+        vimage: "https://blog.escrybe.com.br/wp-content/uploads/2024/07/close-up-closed-shop-sign.jpg",
         qrImage: "qrcodes/1500.jpg",
     },
     {
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
         title: "1 mês de streaming para os noivos",
         text: "Streaming de séries para os noivos maratonarem juntos e discutirem sobre os personagens.",
         price: "R$ 40,00",
-        image: "imagens/streaming.jpeg",
+        image: "https://files.tecnoblog.net/wp-content/uploads/2020/11/ordem-star-wars-e1605818363247-700x393.png",
         qrImage: "qrcodes/40.jpg",
     },
     {
@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
         title: "3 meses de streaming para os noivos",
         text: "Streaming de séries para os noivos maratonarem juntos e discutirem sobre os personagens.",
         price: "R$ 150,00",
-        image: "imagens/streaming.jpeg",
+        image: "https://files.tecnoblog.net/wp-content/uploads/2020/11/ordem-star-wars-e1605818363247-700x393.png",
         qrImage: "qrcodes/150.jpg",
     },
     {
@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
         title: "6 meses de streaming para os noivos",
         text: "Streaming de séries para os noivos maratonarem juntos e discutirem sobre os personagens.",
         price: "R$ 300,00",
-        image: "imagens/streaming.jpeg",
+        image: "https://files.tecnoblog.net/wp-content/uploads/2020/11/ordem-star-wars-e1605818363247-700x393.png",
         qrImage: "qrcodes/300.jpg",
     },
     {
@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
         title: "6 meses de aluguel",
         text: "Aluguel pago para o casal não ter que dormir na rua... ou na sua casa.",
         price: "R$ 1.800,00",
-        image: "imagens/aluguel.avif",
+        image: "https://blog.escrybe.com.br/wp-content/uploads/2024/07/close-up-closed-shop-sign.jpg",
         qrImage: "qrcodes/1800.jpg",
     },
     {
@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', function() {
         title: "Um sofá-cama",
         text: "Um sofá-cama para amigos e familiares terem um lugar confortável para dormir quando vierem visitar.",
         price: "R$ 2.000,00",
-        image: "imagens/sofa.jpg",
+        image: "https://images.tcdn.com.br/img/img_prod/839866/sofa_cama_1_e_2_lugares_alice_suede_preto_adonai_estofados_1857_1_bdd561d0a0777b88429c66be6eaa34bb.jpg",
         qrImage: "qrcodes/2000.jpg",
     },
     {
@@ -181,7 +181,7 @@ document.addEventListener('DOMContentLoaded', function() {
         id: "22",
         title: "Direito de dar pitaco na vida do casal",
         text: "O direito de dar pitaco na vida do casal, incluindo decisões importantes e escolhas do dia a dia.",
-        price: "R$ 100.000.000.000.000.000.000.000.000.000,00",
+        price: "R$ 100 mil",
         image: "imagens/pitaco.jpg",
         qrImage: "qrcodes/pitaco.jpg",
     },
