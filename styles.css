@@ -342,18 +342,19 @@ h2 {
     display: flex;
     flex-direction: column;
     gap: 20px;
+     align-items: center;
 }
 
 .modal-image {   
- height: 130px;
-    width: 100%;
+ height: 500px;
+    width: 500px;
     border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--gothic-gold);
     font-size: 14px;
-    position: relative;
+    position: center;
     overflow: hidden;
    
 }
