@@ -6,6 +6,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const modal = document.getElementById('modal');
     const modalContent = document.getElementById('modal-content');
     
+        const searchInput = document.getElementById('searchInput');
+    const searchButton = document.getElementById('searchButton');
+    const sortSelect = document.getElementById('sortSelect');
+    
+    // Variável para armazenar os cards filtrados/ordenados
+    let filteredCards = [...cardData];
+    
     // Dados dos cartões
     
 
@@ -15,10 +22,10 @@ document.addEventListener('DOMContentLoaded', function() {
     /**
      * Cria os cards na página
      */
-    function createCards() {
+     function createCards(cards = cardData) {
         cardsContainer.innerHTML = '';
         
-        cardData.forEach((item, index) => {
+        cards.forEach((item, index) => {
             const card = document.createElement('div');
             card.className = 'card';
             card.id = item.id;
@@ -29,26 +36,25 @@ document.addEventListener('DOMContentLoaded', function() {
             
             card.innerHTML = `
                 <div class="card-text-content">
-                <h3 class="card-title">${escapeHtml(item.title)}</h3>
-<p class="card-text">${escapeHtml(item.text)}</p>
-<div class="qr-code-container">
-    <img class="qr-code" src="${escapeHtml(item.qrImage)}" alt="QR Code para ${escapeHtml(item.qrText)}">
-    </div>                </div>
+                    <h3 class="card-title">${escapeHtml(item.title)}</h3>
+                    <p class="card-text">${escapeHtml(item.text)}</p>
+                    <div class="qr-code-container">
+                        <img class="qr-code" src="${escapeHtml(item.qrImage)}" alt="QR Code para ${escapeHtml(item.qrText)}">
+                    </div>
+                </div>
                 <div class="card-media-content">
-                  <div class="card-image">
-  <img src="${item.image}" alt="${item.title}" class="card-image-img">
-</div>
+                    <div class="card-image">
+                        <img src="${item.image}" alt="${item.title}" class="card-image-img">
+                    </div>
                     <div class="card-price">${escapeHtml(item.price)}</div>
-                    <button class="card-button" data-pix="ffffff" aria-label="Copiar código PIX para fgdf">
-                       PIX Copia e Cola
+                    <button class="card-button" data-pix="${escapeHtml(item.codigopix)}" aria-label="Copiar código PIX para ${escapeHtml(item.title)}">
+                        PIX Copia e Cola
                     </button>
-                   
                 </div>
             `;
             
             // Adiciona evento de clique para abrir o modal
             card.addEventListener('click', function(e) {
-                // Evita abrir modal se o clique foi no botão PIX
                 if (!e.target.classList.contains('card-button')) {
                     openModal(item, index);
                 }
@@ -57,8 +63,67 @@ document.addEventListener('DOMContentLoaded', function() {
             cardsContainer.appendChild(card);
         });
         
-        // Configura os botões de cópia dos cards
         setupCopyButtons();
+    }
+
+   /**
+     * Filtra os cards baseado no termo de busca
+     */
+    function filterCards() {
+        const searchTerm = searchInput.value.toLowerCase();
+        
+        filteredCards = cardData.filter(card => {
+            return card.title.toLowerCase().includes(searchTerm) || 
+                   card.text.toLowerCase().includes(searchTerm) ||
+                   card.price.toLowerCase().includes(searchTerm);
+        });
+        
+        sortCards();
+    }
+    
+    /**
+     * Ordena os cards baseado no critério selecionado
+     */
+    function sortCards() {
+        const sortValue = sortSelect.value;
+        
+        filteredCards.sort((a, b) => {
+            switch(sortValue) {
+                case 'name-asc':
+                    return a.title.localeCompare(b.title);
+                case 'name-desc':
+                    return b.title.localeCompare(a.title);
+                case 'price-asc':
+                    return extractPrice(a.price) - extractPrice(b.price);
+                case 'price-desc':
+                    return extractPrice(b.price) - extractPrice(a.price);
+                default:
+                    return 0;
+            }
+        });
+        
+        createCards(filteredCards);
+    }
+
+        function extractPrice(priceStr) {
+        const numericValue = priceStr.replace(/[^\d,]/g, '').replace(',', '.');
+        return parseFloat(numericValue) || 0;
+    }
+    
+     // Event Listeners para busca e ordenação
+    searchInput.addEventListener('input', filterCards);
+    searchButton.addEventListener('click', filterCards);
+    sortSelect.addEventListener('change', sortCards);
+    
+    // Configura os botões de cópia dos cards
+    function setupCopyButtons() {
+        document.querySelectorAll('.card-button').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const pixCode = this.getAttribute('data-pix');
+                copyPixCode(pixCode, this);
+            });
+        });
     }
     
     /**
@@ -224,5 +289,5 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Inicializa a aplicação
-    createCards();
+    filterCards();
 });

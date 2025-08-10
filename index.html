@@ -16,6 +16,35 @@
             <h2>NOSSA LISTA DE PRESENTES</h2>
         </header>
         
+        <!-- Controles de busca e ordenação -->
+        <div class="filters-container">
+            <!-- Campo de busca -->
+         
+            
+
+
+<div class="search-container">
+  <input type="text" id="searchInput"  placeholder="Buscar presentes..." class="search-input">
+  <button class="search-button"id="searchButton" aria-label="Buscar">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+    </svg>
+  </button>
+</div>
+
+            <!-- Ordenação -->
+            <div class="sort-box">
+                <label for="sortSelect">Ordenar por:</label>
+                <select id="sortSelect" aria-label="Opções de ordenação">
+                    <option value="name-asc">Nome (A → Z)</option>
+                    <option value="name-desc">Nome (Z → A)</option>
+                    <option value="price-asc">Preço (menor)</option>
+                    <option value="price-desc">Preço (maior)</option>
+                </select>
+            </div>
+        </div>
+        
+        <!-- Container dos cards -->
         <div class="cards-grid" id="cardsContainer">
             <!-- Cards serão gerados dinamicamente pelo JavaScript -->
         </div>
@@ -29,10 +58,7 @@
         <div id="modal-content" class="modal-content"></div>
     </div>
     
-  <script src="cardData.js"></script>  <!-- Primeiro os dados -->
-  <script src="script.js"></script> 
-
-
-    
+    <script src="cardData.js"></script>  <!-- Primeiro os dados -->
+    <script src="script.js"></script> 
 </body>
 </html>
